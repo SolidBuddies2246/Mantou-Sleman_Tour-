@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Status;
+use App\HomePage;
 use Illuminate\Http\Request;
 
 class StatusController extends Controller
@@ -12,10 +13,14 @@ class StatusController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id_status)
     {
-        //
+        $statuspages = HomePage::where('id_status',$id_status)->paginate(4);
+        $statusall = HomePage::All();
+        $nm = Status::findOrFail($id_status);
+        return view('user/status.index',compact('statuspages','statusall','nm'));
     }
+
 
     /**
      * Show the form for creating a new resource.
