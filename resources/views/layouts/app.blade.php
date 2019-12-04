@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    <link rel="icon" href="/img/logo/logo.jpg" type="image/gif" sizes="16x16"> 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,7 +13,8 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- Fonts -->
+    <!-- Fonts --> 
+    <link rel="stylesheet" href="/css/font-awesome.css">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
@@ -51,15 +53,15 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light shadow-sm navd">
             <div class="container">
-                <a class="navbar-brand card-link" href="{{ url('/') }}" style="color:white;">
-                    Mantou-Sleman-Tour
+                <a class="navbar-brand card-link" href="{{ url('/home') }}" style="color:white;">
+                    <img src="/img/logo/logo.png" width="50px">
                 </a>
                 @guest
                     @if(Route::has('register'))
                         
                     @endif
                     @else
-                    <a class="nav-link" href="/homePanitia" style="color:white;" >
+                    <a class="nav-link" href="/crud/create" style="color:white;" >
                     Tambah Data
                         </a>
                 @endguest
@@ -92,7 +94,10 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" style="color: black;" href="{{ route('logout') }}"
+                                     <a class="dropdown-item fa fa-user" style="color: black;" href="">
+                                        My Account
+                                    </a>
+                                    <a class="dropdown-item fa fa-sign-out" style="color: black;" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}

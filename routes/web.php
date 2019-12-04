@@ -17,8 +17,7 @@ Route::resource('/','HomePageController');
 Route::resource('/homepage','HomePageController'); 
 Route::get('/homeOpen/{id_home}&&{id_status}','HomePageController@homeOpen');
 Route::get('/status/{id_status}','StatusController@index');
-Route::get('/cari','HomePageController@cari');
-
+Route::resource('/crud','CRUDAdminController');
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
