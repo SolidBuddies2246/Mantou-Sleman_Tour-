@@ -6,6 +6,7 @@
 
 	<link rel="stylesheet" href="/css/bootstrap.css" >
 	<link rel="stylesheet" type="text/css" href="/css/app.css"> 
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.6/css/star-rating.css"></script>
 	<title>Mantou - Sleman Tour</title> 
 </head> 
 <body> 
@@ -24,6 +25,13 @@
                   <h1 align="center">{{$homepages->judul}}</h1>
         <p align="center">
             <small>
+              <div class="rating">
+                  <input id="input-1" name="rate" class="rating rating-loading" data-min="0" data-max="5" data-step="1" value="" data-size="xs">
+                  <input type="hidden" name="id" required="" value="">
+                  <span class="review-no">422 reviews</span>
+                  <br/>
+                  <button class="btn btn-success">Submit Review</button>
+              </div>
             By <b>{{$homepages->uploader}}</b> - {{$homepages->waktu_upload}} 
             </small>
         </p>

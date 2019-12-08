@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Dashboard User</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,7 +13,14 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <a class="nav-link" href="/homepage">Ke Halaman awal</a>
+                    @if(Auth::user()->verification==0)
+                        <b>Silahkan Menunggu Untuk Hasil Verifikasi dari admin</b>
+                        <a class="nav-link" href="/homepage">Ke Halaman awal</a>
+                    @else
+                        <b>Anda sudah resmi menjadi Panitia</b>
+                        <br>
+                        <a class="nav-link" href="/homepage">Ke Halaman awal</a>
+                    @endif
                 </div>
             </div>
         </div>

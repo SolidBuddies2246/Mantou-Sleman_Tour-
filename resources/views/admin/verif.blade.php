@@ -13,19 +13,19 @@
                                     Nama
                                 </td>
                                 <td>
-                                	Dummy
+                                	{{$users->nama}}
                                 </td>
                             </tr>
                             <tr>
                             <td>Tanggal Lahir</td>
-                            <td>Dummy</td>
+                            <td>{{$users->tanggal_lahir}}</td>
                             </tr>
                             <tr>
                                 <td>
                                     Email
                                 </td>
                                 <td>
-                                	Dummy@gmail.com
+                                	{{$users->email}}
                                 </td>
                             </tr>
                             <tr>
@@ -33,7 +33,7 @@
                                     No HP
                                 </td>
                                 <td>
-                                	+62Dummy
+                                	{{$users->nomor_telepon}}
                                 </td>
                             </tr>
                             <tr>
@@ -41,13 +41,14 @@
                                     Jenis Kelamin
                                 </td>
                                 <td>
-                                	Other
+                                	{{$users->jenis_kelamin}}
                                 </td>
                             </tr>
                             <tr>
    
-                                <td colspan="2"><button type="button" class="btn btn-success btn-sm" >Terima</button>
-<button type="button" class="btn btn-danger btn-sm">Tolak</button></td>
+                                <td colspan="2">
+                                    <button type="button" class="btn btn-success btn-sm" >Terima</button>
+                                    <button type="button" class="btn btn-danger btn-sm">Tolak</button></td>
                                 <td>
                                 	
                                 </td>

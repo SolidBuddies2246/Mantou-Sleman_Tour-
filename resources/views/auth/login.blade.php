@@ -10,12 +10,22 @@
       <form class="sign-in-htm" action="{{ route('login') }}" method="POST">
         @csrf
         <div class="group">
-          <label for="user" class="label">Username</label>
+          <label for="user" class="label">Email</label>
           <input id="username" name="email" type="email" class="input">
+            @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
         <div class="group">
           <label for="pass" class="label">Password</label>
           <input id="password" name="password" type="password" class="input" data-type="password">
+            @error('password')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
         <div class="group">
           <input id="check" type="checkbox" class="check" checked>

@@ -12,7 +12,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nama') }}</label>
 
                             <div class="col-md-6">
                                 <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('name') }}" required autocomplete="name" autofocus>

@@ -29,7 +29,7 @@
 
                         <tbody>
                             @foreach($users as $hasil)
-                            @if($hasil->admin==0)
+                            @if($hasil->admin==0 && $hasil->verification==0)
                             <tr>
                             <th>{{$loop->iteration-1}}</th>
                             <td>{{$hasil->nama}}</td>
@@ -76,14 +76,16 @@
                         </thead>
 
                         <tbody>
-
+                            @foreach($users as $u)
+                            @if($u->verification==0)
                             <tr>
-                            <th>-</th>
-                            <td>-</td>
-                            <td>-</td>
-                            <td><button type="button" class="btn btn-info btn-sm">Lihat Data</button></td>
+                            <th>{{$loop->iteration}}</th>
+                            <td>{{$u->nama}}</td>
+                            <td>{{$u->email}}</td>
+                            <td><a href="/verif/{{$u->id_user}}" class="btn btn-info btn-sm">Lihat Data</button></td>
                             </tr>
- 
+                            @endif
+                            @endforeach
                         </tbody>
 
                     </table>

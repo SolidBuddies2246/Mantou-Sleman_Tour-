@@ -235,23 +235,21 @@
 			<tbody class="ukh">
 				<tr>
 			      	<td><img src="/img/foto/cahaya.jpg" class="d-block w-100" height=165px alt="...">
-						<div class="carousel-caption d-none d-md-block">
-							<!-- <h5><b>Gedangsari Gunungkidul</b></h5>
-							<p>Administrator 16 November 2019</p> -->
+						<div class="top-centered carousel-caption d-none d-md-block">
+							<h5><b>Cahaya Surga Air Terjun Banyunibo – Gedangsari Gunungkidul</b></h5>
 						</div></td>
 			    </tr>
 			    <tr>
 			      	<td><img src="/img/foto/air.jpg" class="d-block w-100" height=165px alt="...">
-						<div class="carousel-caption d-none d-md-block">
-							<!-- <h5><b>Air terjun Srigethuk – Gunungkidul</b></h5>
-							<p>Administrator 16 November 2019</p> -->
-						</div></td>
+						<div class=" centered caption carousel-caption d-none d-md-block">
+							<h5><b>Air terjun Srigethuk – Gunungkidul</b></h5>
+						</div>
+					</td>
 			    </tr>
 			    <tr>
 			      	<td><img src="/img/foto/ngandong.jpg" class="d-block w-100" height=165px alt="...">
 						<div class="carousel-caption d-none d-md-block">
-							<!-- <h5><b>Pantai Ngandong – Tepus, Gunungkidul</b></h5>
-							<p>Administrator 16 November 2019</p> -->
+							<h5><b>Pantai Ngandong – Tepus, Gunungkidul</b></h5>
 						</div></td>
 			    </tr>
 			</tbody>
@@ -279,23 +277,20 @@
 			<tbody class="ukh">
 				<tr>
 			      	<td><img src="/img/foto/dolanan.jpg" class="d-block w-100" height=165px alt="...">
-						<div class="carousel-caption d-none d-md-block">
-							<!-- <h5><b>Dolanan Gangsing – Candi Prambanan</b></h5>
-							<p>Administrator 16 November 2019</p> -->
+						<div class="top-centered carousel-caption d-none d-md-block">
+							<h5><b>Dolanan Gangsing – Candi Prambanan</b></h5>
 						</div></td>
 			    </tr>
 			    <tr>
 			      	<td><img src="/img/foto/gunungan.jpg" class="d-block w-100" height=165px alt="...">
-						<div class="carousel-caption d-none d-md-block">
-							<!-- <h5><b>Gunungan – Alun alun Utara Keraton Yogyakarta</b></h5>
-							<p>Administrator 16 November 2019</p> -->
+						<div class="centered carousel-caption d-none d-md-block">
+							<h5><b>Gunungan – Alun alun Utara Keraton Yogyakarta</b></h5>
 						</div></td>
 			    </tr>
 			    <tr>
 			      	<td><img src="/img/foto/lava.jpg" class="d-block w-100" height=165px alt="...">
 						<div class="carousel-caption d-none d-md-block">
-							<!-- <h5><b>Wisata Lava Tour – Kawasan Wisata Merapi</b></h5>
-							<p>Administrator 16 November 2019</p> -->
+							<h5><b>Wisata Lava Tour – Kawasan Wisata Merapi</b></h5>
 						</div></td>
 			    </tr>
 			</tbody>
@@ -324,23 +319,20 @@
 			<tbody class="ukh">
 				<tr>
 			      	<td><img src="/img/foto/merapi.jpg" class="d-block w-100" height=165px alt="...">
-						<div class="carousel-caption d-none d-md-block">
-							<!-- <h5><b>Merapi & Prambanan</b></h5>
-							<p>Administrator 16 November 2019</p> -->
+						<div class="top-centered carousel-caption d-none d-md-block">
+							<h5><b>Merapi & Prambanan</b></h5>
 						</div></td>
 			    </tr>
 			    <tr>
 			      	<td><img src="/img/foto/sand.jpg" class="d-block w-100" height=165px alt="...">
-						<div class="carousel-caption d-none d-md-block">
-							<!-- <h5><b>The Sand Boarding – Gumuk Pasir Parangtritis</b></h5>
-							<p>Administrator 16 November 2019</p> -->
+						<div class="centered carousel-caption d-none d-md-block">
+							<h5><b>The Sand Boarding – Gumuk Pasir Parangtritis</b></h5>
 						</div></td>
 			    </tr>
 			    <tr>
 			      	<td><img src="/img/foto/prosesi.jpg" class="d-block w-100" height=165px alt="...">
 						<div class="carousel-caption d-none d-md-block">
-							<!-- <h5><b>Prosesi Ngguyang Jaran – Bendung Kayangan, Kulon Progo</b></h5>
-							<p>Administrator 16 November 2019</p> -->
+							<h5><b>Prosesi Ngguyang Jaran – Bendung Kayangan, Kulon Progo</b></h5>
 						</div>
 					</td>
 			    </tr>
@@ -357,7 +349,8 @@
 					<span class="sr-only">Next</span>
 				</a>
 					</div>
-				</div> 
+				</div>
+			</a>
 
 <!--DESTINASI DAN TEMPAT WISATA-->
 <div class="col">

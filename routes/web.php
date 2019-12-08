@@ -10,14 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
+use \App\User;
 
 Route::resource('/','HomePageController');
 Route::resource('/homepage','HomePageController'); 
 Route::get('/homeOpen/{id_home}&&{id_status}','HomePageController@homeOpen');
 Route::get('/status/{id_status}','StatusController@index');
+Route::get('/cari','HomePageController@cari');
 Route::resource('/crud','CRUDAdminController');
+Route::get('/verif/{id_user}','CRUDAdminController@verif');
+// Route::get('/myAcc','MyAccountController');
+
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
@@ -33,7 +36,7 @@ Route::group(['middleware'=>['web','auth']],function(){
 			return view('user.home');
 		}
 		else{
-			$users['users'] = \App\User::all();
+			$users['users'] = User::all();
 			return view('admin.index',$users);
 		}
 	});	

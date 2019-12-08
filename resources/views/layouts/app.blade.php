@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <link rel="icon" href="/img/logo/logo.jpg" type="image/gif" sizes="16x16"> 
+    <link rel="icon" href="{{asset('/img/logo/logo.jpg')}}" type="image/gif" sizes="16x16"> 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,15 +11,19 @@
     <title>Mantou</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('/js/app.js') }}" defer></script>
+    <script type="text/javascript">
 
+        $("#input-id").rating();
+
+    </script>
     <!-- Fonts --> 
     <link rel="stylesheet" href="/css/font-awesome.css">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
     <style type="text/css">
     body{
       background-color: white;
@@ -55,16 +59,14 @@
             <div class="container">
                 <a class="navbar-brand card-link" href="{{ url('/home') }}" style="color:white;">
                     <img src="/img/logo/logo.png" width="50px">
-                </a>
-                @guest
-                    @if(Route::has('register'))
+                </a> 
+                    @if(Auth::user()->admin==0 && Auth::user()->verification==0)
                         
-                    @endif
                     @else
                     <a class="nav-link" href="/crud/create" style="color:white;" >
                     Tambah Data
-                        </a>
-                @endguest
+                        </a> 
+                        @endif
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
