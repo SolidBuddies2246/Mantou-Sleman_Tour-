@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\HomePage;
 use App\Status;
+use App\User;
 use Illuminate\Http\Request;
 use DB;
 
@@ -50,9 +51,12 @@ class HomePageController extends Controller
     public function homeOpen($id_home,$id_status)
     {
         $homepages = HomePage::findOrFail($id_home);
+        $homepages->increment('views');
+        $uploader = User::All()->where('id_user',$homepages->id_uploader)->first();
         $homeall = HomePage::All()->take(4);
         $status = Status::findOrFail($id_status);
-        return view('user/homeOpen.index',compact('homepages','homeall','status'));
+        return view('user/homeOpen.index',compact('homepages','homeall','status','uploader'));
+
     }
     public function cari(Request $request)
     {
@@ -111,9 +115,8 @@ class HomePageController extends Controller
      * @param  \App\HomePage  $homePage
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HomePage $homePage)
-    {
-        //
+    public function update(Request $request, HomePage $homePage,$id_home)
+    { 
     }
 
     /**

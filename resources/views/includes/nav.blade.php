@@ -1,4 +1,5 @@
 <link rel="icon" href="/img/logo/logo.jpg" type="image/gif" sizes="16x16">  
+<link rel="stylesheet" href="/css/font-awesome.css">
  <a class="navbar-brand" href="/home">
   <img src="/img/logo/logo.png" width="50px">
  </a>

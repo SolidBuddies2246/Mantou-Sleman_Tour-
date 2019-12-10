@@ -389,7 +389,11 @@
 					      <div class="card-body">
 					        <h5 class="card-title">{{$d->judul}}</h5>
 					        <p class="card-text">{{substr($d->isi_berita,0,100)}}..</p>
-					        <p class="card-text"><small class="text-muted">Nama Tempat</small></p>
+					        <p class="card-text">
+						        <small class="text-muted">
+						        	{{date('d F Y',strtotime($e->waktu_upload))}} <i class="fa fa-eye" style="padding-left:5px;"> {{$d->views}}</i>
+						        </small>
+					        </p>
 					      </div>
 					    </div>
 					  </div>
@@ -435,7 +439,9 @@
 					      <div class="card-body">
 					        <h5 class="card-title">{{$d->judul}}</h5>
 					        <p class="card-text">{{substr($d->isi_berita,0,100)}}..</p>
-					        <p class="card-text"><small class="text-muted">Moyudan, Sleman</small></p>
+					        <p class="card-text"><small class="text-muted"> 
+				            {{date('d F Y',strtotime($e->waktu_upload))}} <i class="fa fa-eye" style="padding-left:5px;"> {{$d->views}}</i>
+					        </small></p>
 					      </div>
 					    </div>
 					  </div>

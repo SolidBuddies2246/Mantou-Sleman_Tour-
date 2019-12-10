@@ -3,16 +3,18 @@
 <head> 
 	<meta charset="utf-8"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 	<link rel="stylesheet" href="/css/bootstrap.css" >
-	<link rel="stylesheet" type="text/css" href="/css/app.css"> 
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.6/css/star-rating.css"></script>
+	<link rel="stylesheet" type="text/css" href="/css/app.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.6/css/star-rating.css">
+  </script>
+
+
 	<title>Mantou - Sleman Tour</title> 
 </head> 
 <body> 
 		<!--Navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark primary-color navd fixed-top">
-  @include('includes.nav')  
+  @include('includes.nav')
 </nav>
 		<br>
     <br>
@@ -20,21 +22,30 @@
     <br>
     <br>
 	<div class="container">
+    @section($homepages->id_home)
 <div class="row">
 	<div class="col-12"> 
-                  <h1 align="center">{{$homepages->judul}}</h1>
-        <p align="center">
-            <small>
-              <div class="rating">
-                  <input id="input-1" name="rate" class="rating rating-loading" data-min="0" data-max="5" data-step="1" value="" data-size="xs">
-                  <input type="hidden" name="id" required="" value="">
-                  <span class="review-no">422 reviews</span>
-                  <br/>
-                  <button class="btn btn-success">Submit Review</button>
-              </div>
-            By <b>{{$homepages->uploader}}</b> - {{$homepages->waktu_upload}} 
-            </small>
-        </p>
+        <h1 align="center">{{$homepages->judul}}</h1>
+        <center>
+              <small> 
+                  By <b>{{$uploader->nama}}</b> - {{date('d F Y',strtotime($homepages->waktu_upload))}}
+                  <i class="fa fa-eye" style="padding-left:5px;"> {{$homepages->views}}</i>
+              </small>
+              <bdo dir="rtl">
+              <div class="rate">
+                    <input type="radio" id="star5" name="rate" value="5" />
+                    <label for="star5" title="text">5 stars</label>
+                    <input type="radio" id="star4" name="rate" value="4" />
+                    <label for="star4" title="text">4 stars</label>
+                    <input type="radio" id="star3" name="rate" value="3" />
+                    <label for="star3" title="text">3 stars</label>
+                    <input type="radio" id="star2" name="rate" value="2" />
+                    <label for="star2" title="text">2 stars</label>
+                    <input type="radio" id="star1" name="rate" value="1" />
+                    <label for="star1" title="text">1 star</label>
+                  </div>
+            </bdo>
+        </center>
 		<table class="table" border="0">
 
 			  <tbody class="ukh">
@@ -64,15 +75,8 @@
                     <td>
 			    </tr>
           <tr>
-            <td style="padding-left:5%;"> 
-                  <form action="">
-                    <input type="text" name="username" class="form-control col-md-5" placeholder="Nama">
-                    <br>
-                    <textarea type="text" name="isi_komentar" class="form-control col-md-7" rows="7%" placeholder="Komentar">
-                    </textarea>
-                    <input type="hidden" name="id_home" value="">
-                    <button class="btn btn-success">Submit</button>
-                  </form>
+            <td style="padding-left:5%;">  
+
             </td>
           </tr>
 			  </tbody>
@@ -87,9 +91,8 @@
 <footer class="page-footer font-small mdb-color pt-4 navd">
   @include('includes.footer')
 </footer>
-
-	<script src="/js/jquery.js"></script> 
-	<script src="/js/popper.js"></script> 
-	<script src="/js/bootstrap.js"></script>
+  <script src="/js/jquery.js"></script> 
+  <script src="/js/popper.js"></script> 
+  <script src="/js/bootstrap.js"></script>  
 </body> 
 </html>

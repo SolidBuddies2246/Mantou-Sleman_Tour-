@@ -3,18 +3,12 @@
 <head>
 	<link rel="stylesheet" href="/css/bootstrap.css" >
 	<link rel="stylesheet" type="text/css" href="/css/app.css">
-	<style type="text/css"> 
-		a:link{
-			text-decoration: none;
-			color:#1b2a49;
-		}
-	</style>
+
 	<title>Mantou - Sleman Tour</title> 
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark primary-color navd">
-@include(
-'includes.nav')
+@include('includes.nav')
 </nav>
 <br>
 <div class="container">
@@ -32,7 +26,10 @@
 						<img src="/img/{{$nm->nama_status}}/{{$s->gambar}}" class="card-img-top" alt="..." style="height: 150px">
 		            </div>
 		            <div class="card-header">
-						Waktu Upload : {{$s->waktu_upload}}
+						<small>Waktu Upload : {{date('d F Y',strtotime($s->waktu_upload))}}
+							<br>
+							<i class="fa fa-eye" style="padding-left:5px;"> {{$s->views}}</i>
+						</small>
 					</div>
 		            <div class="card-footer" style="min-height:260px;">
 		                <strong>@if(strlen($s->judul)>100)
@@ -49,7 +46,7 @@
 	</div>
 </div>
 
-<div style="padding-left: 10%;">
+<div style="padding-left: 13%;">
 	{{$statuspages->links()}}
 </div>
 
