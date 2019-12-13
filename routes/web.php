@@ -1,5 +1,5 @@
 <?php
-
+use \App\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -9,16 +9,13 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
-use \App\User;
+*/ 
 
 Route::resource('/','HomePageController');
 Route::resource('/homepage','HomePageController'); 
 Route::get('/homeOpen/{id_home}&&{id_status}','HomePageController@homeOpen');
 Route::get('/status/{id_status}','StatusController@index');
 Route::get('/cari','HomePageController@cari');
-Route::resource('/crud','CRUDAdminController');
-Route::get('/verif/{id_user}','CRUDAdminController@verif');
 // Route::get('/myAcc','MyAccountController');
 
 Auth::routes();
@@ -43,5 +40,10 @@ Route::group(['middleware'=>['web','auth']],function(){
 	//Route::get('/homepage','HomePageController@index');
 	Route::get('/homePanitia', function(){
 		return view('panitia/homePanitia.info');
-	});	
+	});
+	Route::resource('/account','MyAccountController');
+	Route::get('/verif/{id_user}','CRUDAdminController@verif');	
+	Route::resource('/crud','CRUDAdminController');
+	Route::get('verifTerima/{id_user}','CRUDAdminController@verifTerima');
+	Route::get('verifTolak/{id_user}','CRUDAdminController@verifTolak');
 });

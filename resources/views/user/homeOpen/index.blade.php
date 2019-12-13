@@ -21,70 +21,109 @@
     <br>
     <br>
     <br>
-	<div class="container">
-    @section($homepages->id_home)
-<div class="row">
-	<div class="col-12"> 
-        <h1 align="center">{{$homepages->judul}}</h1>
-        <center>
-              <small> 
-                  By <b>{{$uploader->nama}}</b> - {{date('d F Y',strtotime($homepages->waktu_upload))}}
-                  <i class="fa fa-eye" style="padding-left:5px;"> {{$homepages->views}}</i>
-              </small>
-              <bdo dir="rtl">
-              <div class="rate">
-                    <input type="radio" id="star5" name="rate" value="5" />
-                    <label for="star5" title="text">5 stars</label>
-                    <input type="radio" id="star4" name="rate" value="4" />
-                    <label for="star4" title="text">4 stars</label>
-                    <input type="radio" id="star3" name="rate" value="3" />
-                    <label for="star3" title="text">3 stars</label>
-                    <input type="radio" id="star2" name="rate" value="2" />
-                    <label for="star2" title="text">2 stars</label>
-                    <input type="radio" id="star1" name="rate" value="1" />
-                    <label for="star1" title="text">1 star</label>
-                  </div>
-            </bdo>
-        </center>
-		<table class="table" border="0">
 
-			  <tbody class="ukh">
-			    <tr >
-			      	<td width="70%">  
+      <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Rating</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="" method="">
+                  <bdo dir="rtl">
+                    <div class="rate">
+                        <input type="radio" id="star5" name="rate" value="5" />
+                        <label for="star5" title="text">5 stars</label>
+                        <input type="radio" id="star4" name="rate" value="4" />
+                        <label for="star4" title="text">4 stars</label>
+                        <input type="radio" id="star3" name="rate" value="3" />
+                        <label for="star3" title="text">3 stars</label>
+                        <input type="radio" id="star2" name="rate" value="2" />
+                        <label for="star2" title="text">2 stars</label>
+                        <input type="radio" id="star1" name="rate" value="1" />
+                        <label for="star1" title="text">1 star</label>
+                      </div>
+                </bdo> 
+            </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
 
-							<img src="/img/{{$status->nama_status}}/{{$homepages->gambar}}" class="d-block w-100" height=400px alt="..."> 
-              <br>
-								<p align="justify">{{$homepages->isi_berita}}</p>
-                <br>
-                <div align="center">
-                  {!!$homepages->alamat_maps!!}
-                </div>
-			      	</td>
-                    <td>
-                    <table align="center"> 
-                    @foreach($homeall as $h)
-                        <tr>
-                            <td style="line-height:top"><img src="/img/header/{{$h->gambar}}" width="100px" style="float: left;" height=80px> </td>
-                            <td> 
-                            <h6>{{$h->judul}} </h6> 
-                            <small>14 September 2019</small> 
-                            </td>
-                        </tr>
-                    @endforeach
-                    </table>
-                    <td>
-			    </tr>
-          <tr>
-            <td style="padding-left:5%;">  
+	<div class="container"> 
+    <div class="row">
+    	<div class="col-12"> 
+            <h1 align="center">{{$homepages->judul}}</h1>
+            <center>
+                  <small> 
+                      By <b>{{$uploader->nama}}</b> - {{date('d F Y',strtotime($homepages->waktu_upload))}}
+                      <i class="fa fa-eye" style="padding-left:5px;"> {{$homepages->views}} </i>
+                  </small> 
+                        <button type="button" class="btn-sm btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                           Rate this
+                        </button>
+                  <bdo dir="rtl">
+                    <div class="rate">
+                        <input type="radio" id="star5" name="rate" value="5" />
+                        <label for="star5" title="text">5 stars</label>
+                        <input type="radio" id="star4" name="rate" value="4" />
+                        <label for="star4" title="text">4 stars</label>
+                        <input type="radio" id="star3" name="rate" value="3" />
+                        <label for="star3" title="text">3 stars</label>
+                        <input type="radio" id="star2" name="rate" value="2" />
+                        <label for="star2" title="text">2 stars</label>
+                        <input type="radio" id="star1" name="rate" value="1" />
+                        <label for="star1" title="text">1 star</label>
+                      </div>
+                      <h2>{{$homepages->rating}}</h2>
+                </bdo>
+            </center>
+    		<table class="table" border="0">
 
-            </td>
-          </tr>
-			  </tbody>
+    			  <tbody class="ukh">
+    			    <tr >
+    			      	<td width="70%">  
 
-		</table>	
-	</div>
+    							<img src="/img/{{$status->nama_status}}/{{$homepages->gambar}}" class="d-block w-100" height=400px alt="..."> 
+                  <br>
+    								<p align="justify">{{$homepages->isi_berita}}</p>
+                    <br>
+                    <div align="center">
+                      {!!$homepages->alamat_maps!!}
+                    </div>
+    			      	</td>
+                        <td>
+                        <table align="center"> 
+                        @foreach($homeall as $h)
+                            <tr>
+                                <td style="line-height:top"><img src="/img/header/{{$h->gambar}}" width="100px" style="float: left;" height=80px> </td>
+                                <td> 
+                                <h6>{{$h->judul}} </h6> 
+                                <small>14 September 2019</small> 
+                                </td>
+                            </tr>
+                        @endforeach
+                        </table>
+                        <td>
+    			    </tr>
+              <tr>
+                <td style="padding-left:5%;">  
 
-</div>
+                </td>
+              </tr>
+    			  </tbody>
+
+    		</table>	
+    	</div>
+
+    </div>
 </div>
 
 <!-- Footer -->

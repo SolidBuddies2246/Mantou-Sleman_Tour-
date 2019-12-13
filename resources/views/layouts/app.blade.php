@@ -60,13 +60,19 @@
                 <a class="navbar-brand card-link" href="{{ url('/home') }}" style="color:white;">
                     <img src="/img/logo/logo.png" width="50px">
                 </a> 
+                @guest
+                @if (Route::has('register'))
+
+                @endif
+                @else
                     @if(Auth::user()->admin==0 && Auth::user()->verification==0)
                         
                     @else
-                    <a class="nav-link" href="/crud/create" style="color:white;" >
-                    Tambah Data
+                    <a class="nav-link" href="/crud" style="color:white;" >
+                    Lihat Data
                         </a> 
-                        @endif
+                    @endif 
+                @endguest
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -96,7 +102,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                     <a class="dropdown-item fa fa-user" style="color: black;" href="">
+                                     <a class="dropdown-item fa fa-user" style="color: black;" href="/account">
                                         My Account
                                     </a>
                                     <a class="dropdown-item fa fa-sign-out" style="color: black;" href="{{ route('logout') }}"

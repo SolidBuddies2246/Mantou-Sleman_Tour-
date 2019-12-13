@@ -90,6 +90,7 @@
         </a>
     </div>
 	@endforeach
+	<div class="button_cont" align="center" style="margin-left: 81%;"><a class="example_e" href="/status/8">Lihat Selengkapnya</a></div>
 </div> 
 <!--BERITA TERBARU-->
 
@@ -107,11 +108,11 @@
 		</div>
 	</div>
 <div class="bd-example img">
-			<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+			<div id="carouselExampleCaptions2" class="carousel slide" data-ride="carousel">
 				<ol class="carousel-indicators">
-					<li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-					<li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-					<li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+					<li data-target="#carouselExampleCaptions2" data-slide-to="0" class="active"></li>
+					<li data-target="#carouselExampleCaptions2" data-slide-to="1"></li>
+					<li data-target="#carouselExampleCaptions2" data-slide-to="2"></li>
 				</ol>
 				<a href="">
 				<div class="carousel-inner">
@@ -138,11 +139,11 @@
 					</div>
 				</div>
 			</a>
-				<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+				<a class="carousel-control-prev" href="#carouselExampleCaptions2" role="button" data-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 					<span class="sr-only">Previous</span>
 				</a>
-				<a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+				<a class="carousel-control-next" href="#carouselExampleCaptions2" role="button" data-slide="next">
 					<span class="carousel-control-next-icon" aria-hidden="true"></span>
 					<span class="sr-only">Next</span>
 				</a>
@@ -183,6 +184,7 @@
 				    </div>
 					
 			@endforeach
+			<div class="button_cont" align="center" style="margin-left: 81%;"><a class="example_e" href="/status/3">Lihat Selengkapnya</a></div>
 			</div>
 			</td>
 			    </tr> 
@@ -340,14 +342,7 @@
 	</div>
 		</div>
 					</div>
-					<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="sr-only">Previous</span>
-				</a>
-				<a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="sr-only">Next</span>
-				</a>
+
 					</div>
 				</div>
 			</a>
@@ -402,6 +397,11 @@
 		      	</td>
 		    </tr>
 		    @endforeach
+		    <tr>
+		    	<td>
+		    		<div class="button_cont" align="center"><a class="example_e" href="/status/6">Lihat Selengkapnya</a></div>
+		    	</td>
+		    </tr>
 		  </tbody>
 
 		</table>	
@@ -450,6 +450,11 @@
 		      	</td>
 		    </tr>
 		    @endforeach
+		    <tr>
+		    	<td>
+		    		<div class="button_cont" align="center"><a class="example_e" href="/status/7">Lihat Selengkapnya</a></div>
+		    	</td>
+		    </tr>
 		  </tbody>
 		</table>	
 	</div>
@@ -490,6 +495,11 @@
 				</div>
 			</td>
 		  </tr> 
+		  <tr>
+		  	<td>
+		  		<div class="button_cont" align="center"><a class="example_e" href="/status/2">Lihat Selengkapnya</a></div>
+		  	</td>
+		  </tr>
 		  </tbody>
 		</table>	
 	</div>
@@ -501,8 +511,8 @@
 	@include('includes.footer')
 </footer> 
 
-	<script src="js/jquery.js"></script> 
-	<script src="js/popper.js"></script> 
-	<script src="js/bootstrap.js"></script>
+	<script src="/js/jquery.js"></script> 
+	<script src="/js/popper.js"></script> 
+	<script src="/js/bootstrap.js"></script>
 </body> 
 </html>

@@ -22,7 +22,7 @@
             </div>
               
             <div class="form-group">
-              <input type="text" hidden="hidden" class="form-control" value="{{Auth::user()->nama}}" name="uploader">
+              <input type="text" hidden="hidden" class="form-control" value="{{Auth::user()->id_user}}" name="id_uploader">
             </div>
 
             <br>

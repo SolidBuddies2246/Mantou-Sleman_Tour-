@@ -29,6 +29,7 @@
 						<small>Waktu Upload : {{date('d F Y',strtotime($s->waktu_upload))}}
 							<br>
 							<i class="fa fa-eye" style="padding-left:5px;"> {{$s->views}}</i>
+							<i class="fa fa-comment" style="padding-left:5px;"> {{$s->banyak_komentar}}</i>
 						</small>
 					</div>
 		            <div class="card-footer" style="min-height:260px;">

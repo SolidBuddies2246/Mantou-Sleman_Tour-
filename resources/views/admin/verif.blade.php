@@ -41,16 +41,23 @@
                                     Jenis Kelamin
                                 </td>
                                 <td>
-                                	{{$users->jenis_kelamin}}
+                                    @if($users->jenis_kelamin=='L')
+                                        Laki-Laki
+                                    @else
+                                        Perempuan
+                                    @endif 
                                 </td>
                             </tr>
-                            <tr>
-   
+                            <tr> 
                                 <td colspan="2">
-                                    <button type="button" class="btn btn-success btn-sm" >Terima</button>
-                                    <button type="button" class="btn btn-danger btn-sm">Tolak</button></td>
-                                <td>
-                                	
+                                    <form action="/verifTolak/{{$users->id_user}}" method="get">
+                                        @csrf
+                                        @method('DELETE')
+                                        <a class="btn btn-success btn-sm" href="/verifTerima/{{$users->id_user}}">Terima</a>
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('anda yakin ingin menolak pendaftar?')">Tolak</button>
+                                    </form>
+                                    </td>
+                                <td> 
                                 </td>
                             </tr>
                     </table>

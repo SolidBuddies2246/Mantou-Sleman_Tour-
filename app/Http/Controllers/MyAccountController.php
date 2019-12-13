@@ -13,9 +13,9 @@ class MyAccountController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
-    }
+    { 
+        return view('admin/profile.index');
+    }   
 
     /**
      * Show the form for creating a new resource.
@@ -57,7 +57,7 @@ class MyAccountController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin/profile.edit');
     }
 
     /**
@@ -67,9 +67,16 @@ class MyAccountController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_user)
     {
-        //
+        $user = User::findOrFail($id_user);
+        $user->nama = $request->nama;
+        $user->email = $request->email;
+        $user->tanggal_lahir = $request->tanggal_lahir; 
+        $user->jenis_kelamin = $request->jenis_kelamin;
+        $user->nomor_telepon = $request->nomor_telepon;
+        $user->save();
+        return redirect('/account')->with('success','Data berhasil diedit');
     }
 
     /**

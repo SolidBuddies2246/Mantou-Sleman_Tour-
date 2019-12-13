@@ -29,7 +29,7 @@
 
                         <tbody>
                             @foreach($users as $hasil)
-                            @if($hasil->admin==0 && $hasil->verification==0)
+                            @if($hasil->admin==0 && $hasil->verification==1)
                             <tr>
                             <th>{{$loop->iteration-1}}</th>
                             <td>{{$hasil->nama}}</td>
@@ -76,16 +76,20 @@
                         </thead>
 
                         <tbody>
-                            @foreach($users as $u)
+                            @forelse($users as $u)
                             @if($u->verification==0)
-                            <tr>
-                            <th>{{$loop->iteration}}</th>
-                            <td>{{$u->nama}}</td>
-                            <td>{{$u->email}}</td>
-                            <td><a href="/verif/{{$u->id_user}}" class="btn btn-info btn-sm">Lihat Data</button></td>
-                            </tr>
+                                <tr>
+                                    <th>{{$loop->iteration}}</th>
+                                    <td>{{$u->nama}}</td>
+                                    <td>{{$u->email}}</td>
+                                    <td><a href="/verif/{{$u->id_user}}" class="btn btn-info btn-sm">Lihat Data</button></td>
+                                </tr> 
                             @endif
-                            @endforeach
+                            @empty
+                            <tr>
+                                <td colspan="4">Pendaftar Sudah diverifikasi semua</td>
+                            </tr>
+                            @endforelse
                         </tbody>
 
                     </table>
