@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="/css/bootstrap.css" >
-	<link rel="stylesheet" type="text/css" href="/css/app.css">
-	<script src="/js/jquery.js"></script>
+	<link rel="stylesheet" href="{{asset('/css/bootstrap.css')}}" >
+	<link rel="stylesheet" type="text/css" href="{{asset('/css/app.css')}}">
+<script src="{{asset('/js/jquery.js')}}"></script>
 	<title>Mantou - Sleman Tour</title> 
 </head>
 <body>

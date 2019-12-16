@@ -7,7 +7,7 @@
       <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1" align="center" style="vertical-align: middle;">
 
         <!-- Content -->
-          <a href="/"><img src="/img/logo/logo.png" class="img-fluid" width="170px" style="float:left;"></a><br>
+          <a href="/"><img src="{{asset('/img/logo/logo.png')}}" class="img-fluid" width="170px" style="float:left;"></a><br>
           <!-- <img src="/img/uii.png" class="img-fluid"
             alt="" style="width: 50px"> -->
 
@@ -74,11 +74,11 @@
         <h5 class="font-weight-bold text-uppercase mb-4">Ikuti Kami</h5>
 
         <a href="">
-        <img src="/img/sosmed/fb.png" style="width: 50px"><br><br>
+        <img src="{{asset('/img/sosmed/fb.png')}}" style="width: 50px"><br><br>
         <!-- Twitter -->
-        <img src="/img/sosmed/tw.png" style="width: 50px"><br><br>
+        <img src="{{asset('/img/sosmed/tw.png')}}" style="width: 50px"><br><br>
         <!-- Google +-->
-        <img src="/img/sosmed/ig.png" style="width: 50px"><br>
+        <img src="{{asset('/img/sosmed/ig.png')}}" style="width: 50px"><br>
         </a>
 
       </div>
@@ -97,5 +97,5 @@
   <!-- Copyright -->
  
  <!--  <script src="/js/jquery.js"></script>  -->
-  <script src="/js/popper.js"></script> 
-  <script src="/js/bootstrap.js"></script>
+  <script src="{{asset('/js/popper.js')}}"></script> 
+  <script src="{{asset('/js/bootstrap.js')}}"></script>

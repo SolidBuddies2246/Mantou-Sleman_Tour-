@@ -3,7 +3,7 @@
       <link rel="stylesheet" href="/css/style.css">
 
 <div>
-  <img src="/img/logo/logo_width.png" style="width: 55% ; height: 45%; position: absolute; padding: 10px;">
+  <img src="{{asset('/img/logo/logo_width.png')}}" style="width: 55% ; height: 45%; position: absolute; padding: 10px;">
 </div>
   <div class="login-wrap">
   <div class="login-html">

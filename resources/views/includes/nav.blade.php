@@ -3,12 +3,12 @@
     font:600 'Open Sans',sans-serif; 
   }
 </style>
-<link rel="icon" href="/img/logo/logo.jpg" type="image/gif" sizes="16x16">  
-<link rel="stylesheet" href="/css/font-awesome.css"> 
+<link rel="icon" href="{{asset('/img/logo/logo.jpg')}}" type="image/gif" sizes="16x16">  
+<link rel="stylesheet" href="{{asset('/css/font-awesome.css')}}"> 
 
-<link href="/css/app.css" rel="stylesheet">
+<link href="{{asset('/css/app.css')}}" rel="stylesheet">
  <a class="navbar-brand" href="/home">
-  <img src="/img/logo/logo.png" width="50px">
+  <img src="{{asset('/img/logo/logo.png')}}" width="50px">
  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
     aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="/css/bootstrap.min.css" crossorigin="anonymous">
-  <script type="text/javascript" src="/js/jquery.js"></script>
+  <link rel="stylesheet" href="{{asset('/css/bootstrap.min.css')}}" crossorigin="anonymous">
+  <script type="text/javascript" src="{{asset('/js/jquery.js')}}"></script>
   <title></title>
 </head>
 <body>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <script src="/js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="{{asset('/css/bootstrap.min.css')}}" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('/css/bootstrap.min.css')}}">
+    <script src="{{asset('/js/jquery.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
