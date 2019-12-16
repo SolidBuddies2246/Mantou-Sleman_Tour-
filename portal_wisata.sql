@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2019 at 03:43 PM
+-- Generation Time: Dec 16, 2019 at 03:54 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `comments` (
   `id_komentar` bigint(20) UNSIGNED NOT NULL,
-  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_user` bigint(20) UNSIGNED DEFAULT 1,
   `isi_komentar` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `id_home` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -144,7 +144,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (40, '2019_12_05_074823_add_id_user_to_home_pages_table', 4),
 (41, '2019_12_05_080615_foreign_key_to_home_pages_table', 5),
 (42, '2019_12_16_013245_add_gambar_to_users', 6),
-(43, '2019_12_07_171633_create_ratings_table', 7);
+(43, '2019_12_07_171633_create_ratings_table', 7),
+(44, '2019_12_16_144600_add_id_user_to_comments', 8);
 
 -- --------------------------------------------------------
 
@@ -261,7 +262,8 @@ INSERT INTO `users` (`id_user`, `nama`, `tanggal_lahir`, `jenis_kelamin`, `email
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id_komentar`),
-  ADD KEY `comments_id_home_foreign` (`id_home`);
+  ADD KEY `comments_id_home_foreign` (`id_home`),
+  ADD KEY `comments_id_user_foreign` (`id_user`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -336,7 +338,7 @@ ALTER TABLE `home_pages`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `ratings`
@@ -364,7 +366,8 @@ ALTER TABLE `users`
 -- Constraints for table `comments`
 --
 ALTER TABLE `comments`
-  ADD CONSTRAINT `comments_id_home_foreign` FOREIGN KEY (`id_home`) REFERENCES `home_pages` (`id_home`);
+  ADD CONSTRAINT `comments_id_home_foreign` FOREIGN KEY (`id_home`) REFERENCES `home_pages` (`id_home`),
+  ADD CONSTRAINT `comments_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
 
 --
 -- Constraints for table `home_pages`
