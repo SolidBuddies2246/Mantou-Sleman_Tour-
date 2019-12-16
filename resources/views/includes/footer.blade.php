@@ -21,7 +21,7 @@
 
         <!-- Content -->
         <h5 class="font-weight-bold text-uppercase mb-4">Tentang Kami</h5>
-        <p>Mantou adalah sebuah portal informasi pariwisata Yogyakarta. Situs ini diperuntukkan untuk seluruh masyarakat Indonesia khususnya wisatawan Daerah Istimewa Yogyakarta.</p>
+        <p>Mantou adalah sebuah portal informasi pariwisata Sleman. Situs ini diperuntukkan untuk seluruh masyarakat Indonesia khususnya wisatawan di Sleman.</p>
 
       </div>
       <!-- Grid column -->
@@ -95,3 +95,7 @@
     <a href="https://mdbootstrap.com/education/bootstrap/"> SolidBuddies Informatics 2018</a>
   </div>
   <!-- Copyright -->
+ 
+ <!--  <script src="/js/jquery.js"></script>  -->
+  <script src="/js/popper.js"></script> 
+  <script src="/js/bootstrap.js"></script>

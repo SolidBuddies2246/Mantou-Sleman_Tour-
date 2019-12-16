@@ -32,6 +32,9 @@ Route::group(['middleware'=>['web','auth']],function(){
 		if(Auth::user()->admin==0){
 			return view('user.home');
 		}
+		else if(Auth::user()->admin==2){
+			return view('user.home');
+		}
 		else{
 			$users['users'] = User::all();
 			return view('admin.index',$users);
@@ -46,4 +49,5 @@ Route::group(['middleware'=>['web','auth']],function(){
 	Route::resource('/crud','CRUDAdminController');
 	Route::get('verifTerima/{id_user}','CRUDAdminController@verifTerima');
 	Route::get('verifTolak/{id_user}','CRUDAdminController@verifTolak');
+	Route::post('/rate/{id_home}&&{id_user}','HomePageController@uploadRating');
 });

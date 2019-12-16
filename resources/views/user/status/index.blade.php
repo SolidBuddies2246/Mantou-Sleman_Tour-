@@ -3,18 +3,18 @@
 <head>
 	<link rel="stylesheet" href="/css/bootstrap.css" >
 	<link rel="stylesheet" type="text/css" href="/css/app.css">
-
+	<script src="/js/jquery.js"></script>
 	<title>Mantou - Sleman Tour</title> 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark primary-color navd">
+<nav class="navbar navbar-expand-lg navbar-dark primary-color navd fixed-top">
 @include('includes.nav')
 </nav>
 <br>
 <div class="container">
 
 		<p>
-		<h1 style="font-size:30px; font-weight: bold; font-weight: 700; font-family:Roboto, sans-serif;"> 
+		<h1 style="font-size:30px; font-weight: bold; font-weight: 700; font-family:Roboto, sans-serif; color:black;"> 
 				{{$nm->nama_status}} 
 		</h1>
 	</p> 
@@ -54,8 +54,5 @@
 <footer class="page-footer font-small mdb-color pt-4 navd">
 	@include('includes.footer')
 </footer>
-	<script src="/js/jquery.js"></script> 
-	<script src="/js/popper.js"></script> 
-	<script src="/js/bootstrap.js"></script>
 </body>
 </html>

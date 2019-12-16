@@ -2,6 +2,7 @@
 <html>
 <head>
   <link rel="stylesheet" href="/css/bootstrap.min.css" crossorigin="anonymous">
+  <script type="text/javascript" src="/js/jquery.js"></script>
   <title></title>
 </head>
 <body>
@@ -10,7 +11,7 @@
   <div class="card-header" align="center">
     Edit Your Profile
   </div>
-  <form action="/account/{{Auth::user()->id_user}}" method="post">
+  <form action="/account/{{Auth::user()->id_user}}" method="post" enctype="multipart/form-data">
   @csrf
   @method('PUT')
    <div class="card-body">
@@ -34,7 +35,13 @@
       <label><input type="radio" name="jenis_kelamin" value="P">Perempuan</label>
     </div>
     </div>
-
+    
+    <div class="form-group">
+      <label >Gambar</label>
+      <input type="file" class="form-control" name="gambar" id="imgInp">
+      <img id="blah" width="200px" height="200px" />
+    </div>
+    
     <div class="form-group">
       <label>Nomor Telepon</label>
       <input type="text" class="form-control" name="nomor_telepon" value="{{Auth::user()->nomor_telepon}}">
@@ -51,5 +58,22 @@
 
 </div>
 </div>
+<script type="text/javascript">
+  function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    
+    reader.onload = function(e) {
+      $('#blah').attr('src', e.target.result);
+    }
+    
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("#imgInp").change(function() {
+  readURL(this);
+});
+</script>
 </body>
 </html>

@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\HomePage;
 use App\Status;
 use App\User;
+use App\Rating;
 use Illuminate\Http\Request;
-use DB;
 
 class HomePageController extends Controller
 {
@@ -19,6 +19,7 @@ class HomePageController extends Controller
     {
         $homepages = HomePage::all();
         
+        $beritabaru = Homepage::all()->where('id_status',1);
         $event1= Homepage::all()->where('id_status',8)->sortByDesc('id_home')->first();
         $eventall=Homepage::where('id_status',8)->paginate(4);
         
@@ -31,7 +32,7 @@ class HomePageController extends Controller
         $desa_all=Homepage::all()->where('id_status',7)->take(4);
 
         $akomodasi=Homepage::all()->where('id_status',2)->take(4);
-        
+
         $statuses = Status::all();
         return view('user/homepages.index',
             compact('homepages',
@@ -44,8 +45,8 @@ class HomePageController extends Controller
                     'desa1',
                     'desa_all',
                     'akomodasi',
-                ));
-        return view('includes.footer',compact('destinasi1'));
+                    'beritabaru'
+                )); 
     }
 
     public function homeOpen($id_home,$id_status)
@@ -117,8 +118,25 @@ class HomePageController extends Controller
      */
     public function update(Request $request, HomePage $homePage,$id_home)
     { 
+
     }
 
+    public function uploadRating(Request $request)
+    {
+        $rtCheck = Rating::all()->where(['id_user',$request->id_user],['id_home',$request->id_home])->first(); 
+        if($rtCheck['id_user']!=$request->id_user && $rtCheck['id_home']!=$request->id_home){  
+            // dd($rtCheck);
+            Rating::create(["jumlah"=>$request->rating,"id_home"=>$request->id_home,"id_user"=>$request->id_user]);
+            $hp = HomePage::findOrFail($request->id_home);
+            $avgStar = Rating::where('id_home',$request->id_home)->avg('jumlah');
+            $hp->rating =  $avgStar;
+            $hp->save();
+            return redirect()->back();
+        }
+        else{
+            return redirect()->back();
+        }
+    }
     /**
      * Remove the specified resource from storage.
      *

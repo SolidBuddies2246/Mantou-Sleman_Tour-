@@ -11,14 +11,13 @@ class CreateRatingsTable extends Migration
     public function up()
     {
         Schema::create('ratings', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_rating');
             $table->timestamps();
-            $table->integer('rating');
-            $table->morphs('rateable');
-            $table->bigInteger('user_id')->unsigned();
-            $table->index('rateable_id');
-            $table->index('rateable_type');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->float('jumlah'); 
+            $table->bigInteger('id_home')->unsigned()->nullable();
+            $table->bigInteger('id_user')->unsigned()->nullable();
+            $table->foreign('id_home')->references('id_home')->on('home_pages');
+            $table->foreign('id_user')->references('id_user')->on('users');
         });
     }
 

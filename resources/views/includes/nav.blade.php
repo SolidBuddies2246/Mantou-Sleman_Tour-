@@ -1,5 +1,12 @@
+<style type="text/css">
+  a {
+    font:600 'Open Sans',sans-serif; 
+  }
+</style>
 <link rel="icon" href="/img/logo/logo.jpg" type="image/gif" sizes="16x16">  
-<link rel="stylesheet" href="/css/font-awesome.css">
+<link rel="stylesheet" href="/css/font-awesome.css"> 
+
+<link href="/css/app.css" rel="stylesheet">
  <a class="navbar-brand" href="/home">
   <img src="/img/logo/logo.png" width="50px">
  </a>
@@ -41,7 +48,56 @@
               </li>
           </ul>
       </li>
+      <li>
+        @guest
+                @if (Route::has('register'))
+
+                @endif
+                @else
+                    @if(Auth::user()->admin==0 && Auth::user()->verification==0 || Auth::user()->admin==2)
+                        
+                    @else
+                      <a class="nav-link" href="/crud" >
+                    Lihat Data
+                      </a> 
+                    @endif 
+        @endguest
+      </li>
   </ul>
+  <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            <li class="nav-item" >
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+<!--                             @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}" >{{ __('Register') }}</a>
+                                </li>
+                            @endif -->
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->nama }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                     <a class="dropdown-item fa fa-user" style="color: black;" href="/account">
+                                        My Account
+                                    </a>
+                                    <a class="dropdown-item fa fa-sign-out" style="color: black;" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
     <form class="form-inline" action="/cari" method="get">
       <div class="md-form my-0">
         <input class="form-control mr-sm-2" type="text" name="cari" placeholder="Search" aria-label="Search">

@@ -51,10 +51,20 @@ a{
   </div>
   <div class="row">
     <div class="column">
-      <img src="/w3images/map.jpg" style="width:100%">
+      @php
+      if(Auth::user()->admin==1){
+      $nama = 'admin';
+      }
+      elseif(Auth::user()->admin==2){
+      $nama = 'user';
+      }
+      else{
+      $nama = 'panitia';
+      }
+      @endphp
+      <img src="/img/profile/{{$nama}}/{{Auth::user()->gambar}}" style="width:100%">
     </div>
-    <div class="column">
-      <form action="/action_page.php">
+    <div class="column"> 
       	<a href="/account/{{Auth::user()->id_user}}/edit" class="btn btn-info btn-lg" width='350px'>
           <span class="glyphicon glyphicon-edit"></span> Change your Profile
         </a>
@@ -91,8 +101,7 @@ a{
       		<div class="col-sm-4"><label for="noHP">Nomor Telepon</label></div>
       		<div class="col-sm-4"> {{Auth::user()->nomor_telepon}}</div>
       	</div>
-      	<br>
-      </form>
+      	<br> 
     </div>
   </div>
 </div>

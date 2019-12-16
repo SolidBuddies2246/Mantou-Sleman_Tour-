@@ -3,6 +3,7 @@
 <head>
 	<link rel="stylesheet" href="/css/bootstrap.css" >
 	<link rel="stylesheet" type="text/css" href="/css/app.css">
+	<script src="/js/jquery.js"></script>
 	<style type="text/css"> 
 		a:link{
 			text-decoration: none;
@@ -12,7 +13,7 @@
 	<title>Mantou - Sleman Tour</title> 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark primary-color navd">
+<nav class="navbar navbar-expand-lg navbar-dark primary-color navd fixed-top">
 @include(
 'includes.nav')
 </nav>
@@ -47,9 +48,6 @@
 
 <footer class="page-footer font-small mdb-color pt-4 navd">
 	@include('includes.footer')
-</footer>
-	<script src="/js/jquery.js"></script> 
-	<script src="/js/popper.js"></script> 
-	<script src="/js/bootstrap.js"></script>
+</footer> 
 </body>
 </html>

@@ -1,4 +1,7 @@
-@extends('layouts.app')
+<nav class="navbar navbar-expand-lg navbar-dark primary-color navd fixed-top">
+  @extends('includes.nav')
+</nav>
+ 
 
 @section('content')
 <div class="container">

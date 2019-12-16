@@ -1,6 +1,7 @@
-@extends('layouts.app')
-
-@section('content')
+<nav class="navbar navbar-expand-lg navbar-dark primary-color navd fixed-top">
+  @include('includes.nav')
+</nav>
+ 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -98,5 +99,4 @@
             </div>
         </div>
     </div>
-</div>
-@endsection
+</div> 

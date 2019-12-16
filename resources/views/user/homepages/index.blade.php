@@ -4,8 +4,9 @@
 	<meta charset="utf-8"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
-	<link rel="stylesheet" href="css/bootstrap.css" >
+	<link rel="stylesheet" href="/css/bootstrap.css" >
 	<link rel="stylesheet" type="text/css" href="/css/app.css">
+	<script src="/js/jquery.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>Mantou - Sleman Tour</title> 
 </head> 
@@ -14,13 +15,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark primary-color navd fixed-top">
  @include('includes.nav')
 </nav>
-		<!--RANDOM NEWS-->
-		<br>
-		<br>
-	    <br>
-	    <br>
-	    <br>
-<div class="container">
+ 
+<div class="container" style="background-color: white;  opacity: 0.95;filter: alpha(opacity=50);">
 <header>
 	@include('includes.header')
 </header>
@@ -90,8 +86,8 @@
         </a>
     </div>
 	@endforeach
-	<div class="button_cont" align="center" style="margin-left: 81%;"><a class="example_e" href="/status/8">Lihat Selengkapnya</a></div>
 </div> 
+<div class="button_cont" align="center"><a class="example_e" href="/status/8">Lihat Selengkapnya</a></div>
 <!--BERITA TERBARU-->
 
 <div class="row">
@@ -113,32 +109,29 @@
 					<li data-target="#carouselExampleCaptions2" data-slide-to="0" class="active"></li>
 					<li data-target="#carouselExampleCaptions2" data-slide-to="1"></li>
 					<li data-target="#carouselExampleCaptions2" data-slide-to="2"></li>
-				</ol>
-				<a href="">
+				</ol> 
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img src="/img/berita/kepatihan.jpg" class="d-block w-100" height=500px alt="...">
+						<img src="/img/berita terbaru/kepatihan.jpg" class="d-block w-100" height=500px alt="...">
 						<div class="carousel-caption d-none d-md-block">
 							<h2><b>Kepatihan Meriahkan Selasa Wage Dengan Peduli Seni dan Budaya</b></h2>
 							<p>5 November 2019</p>
 						</div>
 					</div>
-					<div class="carousel-item">
-						<img src="/img/berita/jembatan.jpg" class="d-block w-100" height=500px alt="...">
-						<div class="carousel-caption d-none d-md-block">
-							<h2>Jembatan Penyeberangan Orang Plaza Ambarrukmo Resmi Dibuka Pagi Tadi</h2>
-							<p>19 November 2019</p>
+					@foreach($beritabaru as $b)
+					
+						<div class="carousel-item"> 
+							<a href="homeOpen/{{$b->id_home}}&&{{$b->id_status}}">
+							<img src="/img/berita terbaru/{{$b->gambar}}"  class="d-block w-100" height=500px alt="..."> 
+						</a>
+							<div class="carousel-caption d-none d-md-block">
+								<h2>{{$b->judul}}</h2>
+								<p>{{date('d F Y',strtotime($b->waktu_upload))}}</p>
+							</div> 
 						</div>
-					</div>
-					<div class="carousel-item">
-						<img src="/img/berita/fashion.jpg" class="d-block w-100" height=500px alt="...">
-						<div class="carousel-caption d-none d-md-block">
-							<h2>Jogja Fashion Week (JFW) 2019 Tampilkan Busana Ramah Lingkungan</h2>
-							<p>20 November 2019</p>
-						</div>
-					</div>
-				</div>
-			</a>
+					
+					@endforeach
+				</div> 
 				<a class="carousel-control-prev" href="#carouselExampleCaptions2" role="button" data-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 					<span class="sr-only">Previous</span>
@@ -184,8 +177,8 @@
 				    </div>
 					
 			@endforeach
-			<div class="button_cont" align="center" style="margin-left: 81%;"><a class="example_e" href="/status/3">Lihat Selengkapnya</a></div>
 			</div>
+			<div class="button_cont" align="center"><a class="example_e" href="/status/3">Lihat Selengkapnya</a></div>
 			</td>
 			    </tr> 
 		  </tbody>
@@ -510,9 +503,6 @@
 <footer class="page-footer font-small navd pt-4">
 	@include('includes.footer')
 </footer> 
-
-	<script src="/js/jquery.js"></script> 
-	<script src="/js/popper.js"></script> 
-	<script src="/js/bootstrap.js"></script>
+ 
 </body> 
 </html>

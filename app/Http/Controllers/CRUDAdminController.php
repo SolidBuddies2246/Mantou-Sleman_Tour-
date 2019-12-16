@@ -7,6 +7,7 @@ use App\HomePage;
 use App\Status;
 use App\User;
 use Auth;
+use DB;
 
 class CRUDAdminController extends Controller
 {
@@ -17,7 +18,8 @@ class CRUDAdminController extends Controller
      */
     public function index()
     { 
-        $homepages = HomePage::join('users','id_uploader','=','id_user')->paginate(10); 
+        $homepages = HomePage::select('home_pages.gambar as gambarHP','home_pages.*','statuses.*','users.*')->join('users','id_user','=','id_uploader')->join('statuses','statuses.id_status','=','home_pages.id_status')->paginate(10); 
+         // dd($homepages);
         return view('panitia/homePanitia.index',compact('homepages'));
     }
 
@@ -49,15 +51,18 @@ class CRUDAdminController extends Controller
         if($request->hasFile('gambar')){
             $image = $request->file('gambar'); 
             $new_image = $image->getClientOriginalName();
-            $image->move(public_path("img/{$nama_status->nama_status}"), $new_image);
+            $image->move(public_path("img/profile/{$nama_status->nama_status}"), $new_image);
             
-
-            HomePage::create(["judul"=>$request->judul,"gambar"=>$new_image,"waktu_upload"=>$request->waktu_upload,"id_uploader"=>$request->id_uploader,"id_status"=>$request->id_status,"isi_berita"=>$request->isi_berita,"alamat_maps"=>$request->alamat_maps]);
+            HomePage::create(["judul"=>$request->judul,
+                "gambar"=>$new_image,
+                "waktu_upload"=>$request->waktu_upload,
+                "id_uploader"=>$request->id_uploader,
+                "id_status"=>$request->id_status,
+                "isi_berita"=>$request->isi_berita,
+                "alamat_maps"=>$request->alamat_maps
+            ]);
             return redirect('/crud');
         }
-
-        
-        
 
     }
 
@@ -82,7 +87,8 @@ class CRUDAdminController extends Controller
     {
         $homepages =HomePage::findOrFail($id_home);
         $statuses = Status::all();
-        return view('panitia/homePanitia.edit',compact('homepages','statuses'));
+        $stat = Status::all()->where('id_status',$homepages->id_status)->first();  
+        return view('panitia/homePanitia.edit',compact('homepages','statuses','stat'));
     }
 
     /**
@@ -94,13 +100,24 @@ class CRUDAdminController extends Controller
      */
     public function update(Request $request, $id_home)
     {
+
+        $request -> validate([
+            'judul' => 'required',
+            'gambar' => 'required',
+            'waktu_upload' => 'required',
+            'id_uploader' => 'required',
+            'id_status' => 'required',
+            'isi_berita' => 'required'
+        ]);
+        
+
         $datas = HomePage::findOrFail($id_home);
         $datas->judul = $request->judul;
         $datas->id_status = $request->id_status;
         $datas->gambar = $request->gambar;
         $datas->isi_berita = $request->isi_berita;
         $datas->alamat_maps = $request->alamat_maps;
-        $datas->uploader = $request->uploader;
+        $datas->id_uploader = $request->id_uploader;
         $datas->waktu_upload = $request->waktu_upload;
         $datas->save();
         return redirect('/crud')->with('success', 'Data telah berhasil diedit');

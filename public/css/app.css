@@ -9,9 +9,15 @@
  .ukh{
   font-size: 13px;
 }
-
-small .ukh{
-  font-size: 10px;
+body{
+	padding-top:4.7%;
+	margin:0;  
+  color:#6a6f8c;
+  background:url(/img/background/bg.jpg) no-repeat center center fixed; 
+  background-size: cover;
+  
+}  .ukh{
+  font-size: 14px;
 }  
 .category{
 	background-color: rgb(34, 34, 34);
@@ -75,7 +81,7 @@ a:link{
     padding: 0;
 }
 .rate {   
-    padding: 0 10px; 
+    padding: 0 5px; 
 }
 .rate:not(:checked) > input {
     position:absolute;
@@ -86,7 +92,7 @@ a:link{
     overflow:hidden;
     white-space:nowrap;
     cursor:pointer;
-    font-size:24px;
+    font-size:40px;
     color:#ccc;
 }
 .rate:not(:checked) > label:before {
@@ -125,4 +131,4 @@ background: none;
 -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
 -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
 transition: all 0.3s ease 0s;
-}
+} 

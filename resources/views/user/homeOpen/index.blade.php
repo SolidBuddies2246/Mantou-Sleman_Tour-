@@ -2,26 +2,17 @@
 <html> 
 <head> 
 	<meta charset="utf-8"> 
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="/css/bootstrap.css" >
-	<link rel="stylesheet" type="text/css" href="/css/app.css">
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.6/css/star-rating.css">
-  </script>
-
-
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+  <link rel="stylesheet" href="{{asset('/css/jquery.rateyo.css')}}"/>
+  <script src="{{asset('/js/jquery.js')}}"></script>
+  <script src="{{asset('/js/jquery.rateyo.js')}}"></script>
 	<title>Mantou - Sleman Tour</title> 
 </head> 
 <body> 
 		<!--Navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark primary-color navd fixed-top">
   @include('includes.nav')
-</nav>
-		<br>
-    <br>
-    <br>
-    <br>
-    <br>
-
+</nav> 
       <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -32,32 +23,33 @@
               </button>
             </div>
             <div class="modal-body">
-              <form action="" method="">
+              <form action="/rate/{{$homepages->id_home}}&&{{Auth::user()->id_user}}" method="POST">
+                @csrf
                   <bdo dir="rtl">
                     <div class="rate">
-                        <input type="radio" id="star5" name="rate" value="5" />
+                        <input type="radio" id="star5" name="rating" value="5" />
                         <label for="star5" title="text">5 stars</label>
-                        <input type="radio" id="star4" name="rate" value="4" />
+                        <input type="radio" id="star4" name="rating" value="4" />
                         <label for="star4" title="text">4 stars</label>
-                        <input type="radio" id="star3" name="rate" value="3" />
+                        <input type="radio" id="star3" name="rating" value="3" />
                         <label for="star3" title="text">3 stars</label>
-                        <input type="radio" id="star2" name="rate" value="2" />
+                        <input type="radio" id="star2" name="rating" value="2" />
                         <label for="star2" title="text">2 stars</label>
-                        <input type="radio" id="star1" name="rate" value="1" />
+                        <input type="radio" id="star1" name="rating" value="1" />
                         <label for="star1" title="text">1 star</label>
                       </div>
                 </bdo> 
             </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
               </div>
             </form>
           </div>
         </div>
       </div>
 
-	<div class="container"> 
+	<div class="container" style="background-color: white;opacity: 0.95;"> 
     <div class="row">
     	<div class="col-12"> 
             <h1 align="center">{{$homepages->judul}}</h1>
@@ -68,22 +60,9 @@
                   </small> 
                         <button type="button" class="btn-sm btn-primary" data-toggle="modal" data-target="#staticBackdrop">
                            Rate this
-                        </button>
-                  <bdo dir="rtl">
-                    <div class="rate">
-                        <input type="radio" id="star5" name="rate" value="5" />
-                        <label for="star5" title="text">5 stars</label>
-                        <input type="radio" id="star4" name="rate" value="4" />
-                        <label for="star4" title="text">4 stars</label>
-                        <input type="radio" id="star3" name="rate" value="3" />
-                        <label for="star3" title="text">3 stars</label>
-                        <input type="radio" id="star2" name="rate" value="2" />
-                        <label for="star2" title="text">2 stars</label>
-                        <input type="radio" id="star1" name="rate" value="1" />
-                        <label for="star1" title="text">1 star</label>
-                      </div>
-                      <h2>{{$homepages->rating}}</h2>
-                </bdo>
+                        </button> 
+                    <div id="rateYo" style="pointer-events: none;"></div>  
+                      <h2>{{$homepages->rating}}</h2> 
             </center>
     		<table class="table" border="0">
 
@@ -130,8 +109,20 @@
 <footer class="page-footer font-small mdb-color pt-4 navd">
   @include('includes.footer')
 </footer>
-  <script src="/js/jquery.js"></script> 
-  <script src="/js/popper.js"></script> 
-  <script src="/js/bootstrap.js"></script>  
+<script type="text/javascript">
+  $(function () {
+  
+  $("#rateYo").rateYo({
+    "rating": "{{$homepages->rating}}",
+    "starWidth": "30px",
+  });
+
+  $("#rateUpload").rateYo({ 
+    "starWidth": "30px",
+  });
+
+});
+</script> 
+ 
 </body> 
 </html>

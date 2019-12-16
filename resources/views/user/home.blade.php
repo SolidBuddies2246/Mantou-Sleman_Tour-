@@ -1,6 +1,7 @@
-@extends('layouts.app')
-
-@section('content')
+<nav class="navbar navbar-expand-lg navbar-dark primary-color navd fixed-top">
+  @include('includes.nav')
+</nav>
+ 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -26,4 +27,6 @@
         </div>
     </div>
 </div>
-@endsection
+<footer class="page-footer font-small navd pt-4" style="bottom:0;position: absolute; width: 100%">
+    @include('includes.footer')
+</footer> 
