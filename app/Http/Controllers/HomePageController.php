@@ -6,6 +6,7 @@ use App\HomePage;
 use App\Status;
 use App\User;
 use App\Rating;
+use App\Comment;
 use Illuminate\Http\Request;
 
 class HomePageController extends Controller
@@ -53,11 +54,14 @@ class HomePageController extends Controller
     {
         $homepages = HomePage::findOrFail($id_home);
         $homepages->increment('views');
+        $user = User::all();
         $uploader = User::All()->where('id_user',$homepages->id_uploader)->first();
         $homeall = HomePage::All()->take(4);
         $status = Status::findOrFail($id_status);
-        return view('user/homeOpen.index',compact('homepages','homeall','status','uploader'));
-
+        $cnew = Comment::where('id_home',$id_home)->get();
+        $cn = count($cnew);
+        $comments = Comment::join('users','users.id_user','=','comments.id_user')->where('id_home',$id_home)->orderBy('id_komentar')->get();
+        return view('user/homeOpen.index',compact('homepages','homeall','status','uploader','comments','user','cn'));
     }
     public function cari(Request $request)
     {
@@ -120,6 +124,20 @@ class HomePageController extends Controller
     { 
 
     }
+
+    public function comment(Request $request)
+    { 
+        // dd($request->id_user);
+        $h= Homepage::findOrFail($request->id_home);
+        $h->increment('banyak_komentar');
+        Comment::create(["id_user"=>$request->id_user,
+            "isi_komentar"=>$request->isi_komentar,
+            "id_home"=>$request->id_home]);
+        return redirect()->back();
+    }
+
+    
+
 
     public function uploadRating(Request $request)
     {

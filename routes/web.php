@@ -16,6 +16,7 @@ Route::resource('/homepage','HomePageController');
 Route::get('/homeOpen/{id_home}&&{id_status}','HomePageController@homeOpen');
 Route::get('/status/{id_status}','StatusController@index');
 Route::get('/cari','HomePageController@cari');
+
 // Route::get('/myAcc','MyAccountController');
 
 Auth::routes();
@@ -50,4 +51,5 @@ Route::group(['middleware'=>['web','auth']],function(){
 	Route::get('verifTerima/{id_user}','CRUDAdminController@verifTerima');
 	Route::get('verifTolak/{id_user}','CRUDAdminController@verifTolak');
 	Route::post('/rate/{id_home}&&{id_user}','HomePageController@uploadRating');
+	Route::post('/add_comment/{id_home}&&{id_user}','HomePageController@comment');
 });

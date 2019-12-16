@@ -22,9 +22,15 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
-              <form action="/rate/{{$homepages->id_home}}&&{{Auth::user()->id_user}}" method="POST">
+            
+                @guest
+                @if (Route::has('register'))
+                <center>Anda Login Dulu</center>
+                @endif
+                @else
+<form action="/rate/{{$homepages->id_home}}&&{{Auth::user()->id_user}}" method="POST">
                 @csrf
+                <div class="modal-body">
                   <bdo dir="rtl">
                     <div class="rate">
                         <input type="radio" id="star5" name="rating" value="5" />
@@ -44,7 +50,9 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
-            </form>
+            </form> 
+        @endguest
+              
           </div>
         </div>
       </div>
@@ -77,7 +85,60 @@
                     <div align="center">
                       {!!$homepages->alamat_maps!!}
                     </div>
-    			      	</td>
+                    <br>
+                    <br>
+
+                        <h2><span id="comments_count">{{$cn}}</span> Comment(s)</h2>
+                          <hr>
+                          <!-- comments wrapper -->
+                        
+                          <div id="comments-wrapper">
+                            @foreach($comments as $c)
+                            @if($c->admin==1) 
+                            <div hidden="">{{$nama = 'admin'}}</div>
+                            @elseif($c->admin==2) 
+                            <div hidden="">{{$nama = 'user'}}</div>
+                            @else 
+                            <div hidden="">{{$nama = 'panitia'}}</div>
+                            @endif
+                            <div class="comment clearfix">
+                                <img src="/img/profile/{{$nama}}/{{$c->gambar}}" alt="" class="profile_pic">
+                                <div class="comment-details">
+                                  <span class="comment-name">{{$c->nama}}</span>
+
+                                  <span class="comment-date">{{$c->created_at}}</span>
+                                  <p>{{$c->isi_komentar}}</p>
+                                </div>
+                              </div>
+                              @endforeach
+                            </div>
+                    <br>
+                    @guest
+                @if (Route::has('register'))
+
+                  @endif
+                  @else
+                  <form method="POST" action="/add_comment/{{$homepages->id_home}}&&{{Auth::user()->id_user}}">
+                      @csrf
+
+                          <div class="form-group" hidden="">
+                              {{Auth::user()->nama}}
+                          </div>
+                          <div class="form-group" hidden="">
+                              {{date("d/m/y h:i:s")}}
+                          </div>
+                          <div class="form-group">
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="isi_komentar" placeholder="Isi komentar...."></textarea>
+                          </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    
+                    </form>
+
+                @endguest
+
+
+                    
+                    </td>
                         <td>
                         <table align="center"> 
                         @foreach($homeall as $h)
