@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark primary-color navd fixed-top">
   @include('includes.nav')
 </nav>
- 
+ <script type="text/javascript" src="{{asset('/js/jquery.js')}}"></script>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -41,6 +41,16 @@
                                 <select name="jenis_kelamin" class="form-control">
                                     <option value="L">Laki-Laki</option>
                                     <option value="P">Perempuan</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">{{ __('Pangkat') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="admin" class="form-control">
+                                    <option value="0">panitia</option>
+                                    <option value="2">User</option>
                                 </select>
                             </div>
                         </div>
@@ -100,3 +110,6 @@
         </div>
     </div>
 </div> 
+<footer class="page-footer font-small mdb-color pt-4 navd">
+  @include('includes.footer')
+</footer>

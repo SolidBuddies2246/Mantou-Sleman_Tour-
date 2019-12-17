@@ -77,7 +77,6 @@
     			  <tbody class="ukh">
     			    <tr >
     			      	<td width="70%">  
-
     							<img src="/img/{{$status->nama_status}}/{{$homepages->gambar}}" class="d-block w-100" height=400px alt="..."> 
                   <br>
     								<p align="justify">{{$homepages->isi_berita}}</p>
@@ -141,9 +140,10 @@
                     </td>
                         <td>
                         <table align="center"> 
-                        @foreach($homeall as $h)
+                        @foreach($homeall as $h) 
                             <tr>
-                                <td style="line-height:top"><img src="/img/header/{{$h->gambar}}" width="100px" style="float: left;" height=80px> </td>
+                                <td style="line-height:top">
+                                  <a href="/homeOpen/{{$h->id_home}}&&{{$h->id_status}}"><img src="/img/header/{{$h->gambar}}" width="100px" style="float: left;" height=80px></a> </td>
                                 <td> 
                                 <h6>{{$h->judul}} </h6> 
                                 <small>14 September 2019</small> 
